@@ -1,0 +1,36 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 55.79      7.47     7.47        1     7.47     7.93  func1
+ 37.27     12.46     4.99        1     4.99     4.99  func2
+  3.51     12.93     0.47                             main
+  3.44     13.39     0.46        1     0.46     0.46  new_func1
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) for 0.07% of 13.39 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.47   12.92                 main [1]
+                7.47    0.46       1/1           func1 [2]
+                4.99    0.00       1/1           func2 [3]
+-----------------------------------------------
+                7.47    0.46       1/1           main [1]
+[2]     59.2    7.47    0.46       1         func1 [2]
+                0.46    0.00       1/1           new_func1 [4]
+-----------------------------------------------
+                4.99    0.00       1/1           main [1]
+[3]     37.3    4.99    0.00       1         func2 [3]
+-----------------------------------------------
+                0.46    0.00       1/1           func1 [2]
+[4]      3.4    0.46    0.00       1         new_func1 [4]
+-----------------------------------------------
+
+Index by function name
+
+   [2] func1                   [1] main
+   [3] func2                   [4] new_func1
